@@ -13,11 +13,10 @@ jobs:
         with:
           github-token: ${{ secrets.GH_PROJECT_TOKEN }}
           script: |
-            const orgLogin = "MaxTham"; // <-- your GitHub org
-            const projectTitle = "Vaultly"; // <-- your project name
-            const startFieldName = "Start date"; // must match exactly
-            const endFieldName = "End date";     // must match exactly
-
+            const username = "MaxTham"; // <-- your GitHub username
+            const projectTitle = "Vaultly"; // <-- your personal project title
+            const startFieldName = "Start date";
+            const endFieldName = "End date";
             const dateToday = new Date().toISOString().split("T")[0];
 
             const issueNumber = context.payload.issue.number;
@@ -38,10 +37,9 @@ jobs:
               console.warn(`⚠️ Failed to assign issue: ${error.message}`);
             }
 
-            // FIXED: GraphQL with union type handling
             const queryProjects = `
-              query($org: String!) {
-                organization(login: $org) {
+              query($login: String!) {
+                user(login: $login) {
                   projectsV2(first: 10) {
                     nodes {
                       id
@@ -70,12 +68,12 @@ jobs:
             `;
 
             const response = await github.graphql(queryProjects, {
-              org: orgLogin
+              login: username
             });
 
-            const project = response.organization.projectsV2.nodes.find(p => p.title === projectTitle);
+            const project = response.user.projectsV2.nodes.find(p => p.title === projectTitle);
             if (!project) {
-              core.setFailed("❌ Project not found in org");
+              core.setFailed("❌ Project not found in user account");
               return;
             }
 
