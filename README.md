@@ -42,7 +42,6 @@ Vaulty is a personal finance mobile application that helps users **track their e
 - Pie/Bar/Line charts for spending and income trends
 - Category-wise breakdowns
 - Historical comparisons
-testset
 
 
 ## 🛠️ Setup Instructions
