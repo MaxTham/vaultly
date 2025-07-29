@@ -1,18 +1,12 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { Text, View, Button, Image } from 'react-native'
 import React from 'react'
-import { useRouter } from 'expo-router'
-
-const Onboarding = () => {
-  const router = useRouter()
+import { Redirect } from 'expo-router';
+import Onboarding from './onboarding';
+const Home = () => {
 
   return (
-    <View>
-      <Text>this is the onboarding</Text>
-      <Button title="Go to Dashboard" onPress={() => router.push('/dashboard')} />
-    </View>
+      <Redirect href="/onboarding" />
   )
 }
 
-export default Onboarding
-
-const styles = StyleSheet.create({})
+export default Home
