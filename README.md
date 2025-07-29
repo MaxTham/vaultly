@@ -1,4 +1,4 @@
-# 📱 Vaulty – AI-Powered Expense Tracker App
+# <img  src="./assets/images/vaultly-icon-removebg.png" /> Vaulty – AI-Powered Expense Tracker App
 
 Vaulty is a personal finance mobile application that helps users **track their expenses**, **manage budgets**, and receive **AI-powered financial suggestions**. Designed for simplicity and intelligence, Vaulty gives users full control and insight into their money in real-time.
 
