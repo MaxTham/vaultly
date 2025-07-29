@@ -50,10 +50,14 @@ Vaulty is a personal finance mobile application that helps users **track their e
 ```bash
 git clone https://github.com/MaxTham/vaultly.git
 cd vaulty
+```
 
 ### 2. Install Dependencies
+```bash
 npm install
+```
 
 ### 3. Start Expo
+```bash
 npx expo start
 ```
